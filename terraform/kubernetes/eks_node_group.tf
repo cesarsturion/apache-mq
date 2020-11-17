@@ -59,10 +59,10 @@
 
 resource "aws_eks_node_group" "eks-node-group" {
   cluster_name    = aws_eks_cluster.eks-cluster.name
-  node_group_name = "eks-gudiao-labs-nodes"
-#  node_role_arn   = aws_iam_role.eks-node-service-role.arn
-  node_role_arn   = "arn:aws:iam::495964244270:role/eksNodeInstanceRole"  
-  subnet_ids      = data.aws_subnet_ids.private.ids
+  node_group_name = "eks-veloe-nodes"
+  node_role_arn   = aws_iam_role.eks-node-service-role.arn
+  #node_role_arn   = "arn:aws:iam::495964244270:role/eksNodeInstanceRole"  
+  subnet_ids      = data.aws_subnet_ids.public.ids
 
 
   scaling_config {
@@ -72,13 +72,13 @@ resource "aws_eks_node_group" "eks-node-group" {
   }
 
   remote_access {
-    ec2_ssh_key               = "awsKey-Ohio"
+    ec2_ssh_key               = "awsekskey-veloe"
     source_security_group_ids = [data.aws_security_group.selected.id]
   }  
 
   tags = {
     "Name" = "eks_node_group"
-    "kubernetes.io/cluster/${var.cluster-name}" = "owned"
+    "kubernetes.io/cluster/${var.cluster-name}" = "shared"
   }
 
 }

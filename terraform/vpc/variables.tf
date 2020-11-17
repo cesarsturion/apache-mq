@@ -1,5 +1,5 @@
 variable "region" {
-  default = "us-east-2"
+  default = "us-east-1"
 }
 
 variable "vpc_cidr_block" {
@@ -12,11 +12,11 @@ variable "az_count" {
 }
 
 variable "tagName" {
-  default = "gudiao-labs"
+  default = "veloe"
 }
 
 variable "cluster-name" {
-  default     = "gudiao-labs-eks"
+  default     = "veloe-eks"
   description = "Enter eks cluster name - example like eks-demo, eks-dev etc"
 }
 

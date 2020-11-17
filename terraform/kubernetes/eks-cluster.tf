@@ -46,15 +46,7 @@
 # }
 
 # resource "aws_security_group_rule" "allow_http" {
-#   type              = "ingress"
-#   from_port         = 80
-#   to_port           = 80
-#   protocol          = "tcp"
-#   cidr_blocks       = ["0.0.0.0/0"]
-#   security_group_id = aws_security_group.eks-sec-group-cluster.id
-# }
-
-# resource "aws_security_group_rule" "allow_com_cluster_nodes" {
+#   type              = "ingress"(eks-gudiao):
 #   type              = "ingress"
 #   from_port         = 0
 #   to_port           = 65535
@@ -67,16 +59,21 @@
 #EKS Service
 resource "aws_eks_cluster" "eks-cluster" {
   name     = var.cluster-name
-#  role_arn = aws_iam_role.eks-cluster-service-role.arn
-  role_arn = "arn:aws:iam::495964244270:role/eksServiceRole"
+  role_arn = aws_iam_role.eks-cluster-service-role.arn
+  #role_arn = "arn:aws:iam::495964244270:role/eksServiceRole"
 
   vpc_config {
     security_group_ids = [data.aws_security_group.selected.id]
-    subnet_ids         = data.aws_subnet_ids.private.ids
+    subnet_ids         = data.aws_subnet_ids.public.ids
   }
 
   depends_on = [
     aws_nat_gateway.eks-nat-gw
   ]  
+
+  tags = {
+    "Name"                                      = var.cluster-name
+  }
+
 
 }

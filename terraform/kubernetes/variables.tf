@@ -8,12 +8,12 @@ variable "az_count" {
 
 
 variable "cluster-name" {
-  default     = "eks-gudiao"
+  default     = "eks-veloe"
   description = "Enter eks cluster name - example like eks-demo, eks-dev etc"
 }
 
 variable "eks_version" {
-  default = "1.15"
+  default = "1.18"
 }
 
 variable "eks-worker-ami" {

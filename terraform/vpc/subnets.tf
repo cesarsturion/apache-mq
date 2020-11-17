@@ -9,6 +9,7 @@ resource "aws_subnet" "private-subnet" {
     "Name"                                      = "${var.tagName}-private-subnet"
     "kubernetes.io/cluster/${var.cluster-name}" = "shared"
     "kubernetes.io/role/internal-elb"           = "1"
+    "service.beta.kubernetes.io/aws-load-balancer-internal" = "true"
   }
 }
 
@@ -24,6 +25,7 @@ resource "aws_subnet" "public-subnet" {
   tags = {
     "Name"                                      = "${var.tagName}-public-subnet"
     "kubernetes.io/cluster/${var.cluster-name}" = "shared"
+    "kubernetes.io/role/elb"           = "1"
   }
 }
 
