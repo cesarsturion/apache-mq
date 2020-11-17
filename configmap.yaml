@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tcp-services
+  namespace: ingress-nginx
+data:
+  80: "default/hello-kubernetes:80"
+  8161: "active-mq/active-mq:8161"

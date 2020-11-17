@@ -292,11 +292,31 @@ spec:
     - name: http
       port: 80
       protocol: TCP
-      targetPort: http
+      targetPort: 80
     - name: https
       port: 443
       protocol: TCP
-      targetPort: https
+      targetPort: 443
+    - name: http-port-console
+      port: 8161
+      protocol: TCP
+      targetPort: 8161
+    - name: openwire
+      port: 61616
+      protocol: TCP
+      targetPort: 61616
+    - name: amqp
+      port: 5672
+      protocol: TCP
+      targetPort: 5672
+    - name: stomp
+      port: 61613
+      protocol: TCP
+      targetPort: 61613
+    - name: mqtt
+      port: 1883
+      protocol: TCP
+      targetPort: 1883
   selector:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/instance: ingress-nginx

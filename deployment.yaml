@@ -17,6 +17,9 @@ spec:
       containers:
         - image: csturion/apache-mq
           name: active-mq
+          ports:
+            - name: console
+              containerPort: 8161
           imagePullPolicy: Always
           resources:
             requests:

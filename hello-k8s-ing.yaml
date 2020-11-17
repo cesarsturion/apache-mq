@@ -8,7 +8,7 @@ metadata:
 spec:
   rules:
     # route by virtualhost - externaldns registers this record
-  - host: ac3f8589df6c64f54835e01cb67569cc-4003e090bedc9617.elb.us-east-1.amazonaws.com
+  - host: a339291cd1de14064a5144a840b48e21-97671f3b118eb4f8.elb.us-east-1.amazonaws.com
     http:
       paths:
       - backend:

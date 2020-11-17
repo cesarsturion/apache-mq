@@ -14,4 +14,4 @@ RUN apache-artemis-2.16.0/bin/artemis create veloe-broker \
     --cluster-password admin
 COPY start.sh .
 RUN chmod +x start.sh
-#CMD ["./start.sh"]
+CMD ["./start.sh"]
