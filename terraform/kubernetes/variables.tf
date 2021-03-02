@@ -8,7 +8,7 @@ variable "az_count" {
 
 
 variable "cluster-name" {
-  default     = "eks-veloe"
+  default     = "eks-alelo-backup"
   description = "Enter eks cluster name - example like eks-demo, eks-dev etc"
 }
 
@@ -25,5 +25,5 @@ variable "worker-node-instance_type" {
 }
 
 variable "ssh_key_pair" {
-  default = "gudiaoEKS-Keypair"
+  default = "eks-alelo"
 }

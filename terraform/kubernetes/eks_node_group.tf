@@ -63,7 +63,7 @@ resource "aws_eks_node_group" "eks-node-group" {
   node_role_arn   = aws_iam_role.eks-node-service-role.arn
   #node_role_arn   = "arn:aws:iam::495964244270:role/eksNodeInstanceRole"  
   subnet_ids      = data.aws_subnet_ids.public.ids
-
+  #instance_types = "t3.medium"
 
   scaling_config {
     desired_size = 3
@@ -72,7 +72,7 @@ resource "aws_eks_node_group" "eks-node-group" {
   }
 
   remote_access {
-    ec2_ssh_key               = "awsekskey-veloe"
+    ec2_ssh_key               = "eks-alelo-backup"
     source_security_group_ids = [data.aws_security_group.selected.id]
   }  
 

@@ -18,8 +18,33 @@ spec:
         - image: csturion/apache-mq
           name: active-mq
           ports:
-            - name: console
-              containerPort: 8161
+          - containerPort: 8161
+            name: web
+            protocol: TCP
+          - containerPort: 9876
+            name: broadcast
+            protocol: UDP
+          - containerPort: 61610
+            name: netty-connector
+            protocol: TCP
+          - containerPort: 61613
+            name: stomp
+            protocol: TCP
+          - containerPort: 1883
+            name: mqtt
+            protocol: TCP
+          - containerPort: 61616
+            name: openwire
+            protocol: TCP
+          - containerPort: 9404
+            name: jmx
+            protocol: TCP
+          - containerPort: 5445
+            name: hornetq
+            protocol: TCP
+          - containerPort: 5672
+            name: amqp
+            protocol: TCP
           imagePullPolicy: Always
           resources:
             requests:
@@ -28,9 +53,14 @@ spec:
             limits:
               memory: 1000Mi
               cpu: 400m
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+                - NET_RAW  
           volumeMounts:
           - name: active-creds
-            mountPath: /home/alpine/apache-activemq-5.15.10/conf/jetty-realm.properties
+            mountPath: /home/alpine/apache-artemis-2.16.0/conf/jetty-realm.properties
             subPath: jetty-realm.properties
       volumes:
       - name: active-creds

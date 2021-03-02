@@ -13,9 +13,17 @@ spec:
     port: 8161
     targetPort: 8161
     protocol: TCP
+  - name: broadcast
+    port: 9876
+    targetPort: 9876
+    protocol: TCP
   - name: openwire
     port: 61616
     targetPort: 61616
+    protocol: TCP
+  - name: netty-connector
+    port: 61610
+    targetPort: 61610
     protocol: TCP
   - name: amqp
     port: 5672
@@ -29,4 +37,12 @@ spec:
     port: 1883
     targetPort: 1883
     protocol: TCP
+  - name: jmx
+    port: 9404
+    protocol: TCP
+    targetPort: 9404
+  - name: hornetq
+    port: 5445
+    protocol: TCP
+    targetPort: 5445
   type: LoadBalancer

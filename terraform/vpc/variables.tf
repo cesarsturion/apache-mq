@@ -4,7 +4,7 @@ variable "region" {
 
 variable "vpc_cidr_block" {
   description = "Range of IPv4 address for the VPC"
-  default     = "10.0.0.0/16"
+  default     = "10.100.0.0/16"
 }
 
 variable "az_count" {
@@ -12,11 +12,11 @@ variable "az_count" {
 }
 
 variable "tagName" {
-  default = "veloe"
+  default = "alelo-dextra-backup"
 }
 
 variable "cluster-name" {
-  default     = "veloe-eks"
+  default     = "alelo-dextra-eks-backup"
   description = "Enter eks cluster name - example like eks-demo, eks-dev etc"
 }
 

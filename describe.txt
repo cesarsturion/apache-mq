@@ -1,0 +1,11 @@
+kubectl create namespace active-mq
+
+create file jetty-realm.properties
+
+Include values:
+# username: password ,[role-name]
+admin_username: admin, admin
+guest-user: guest, guest
+
+Create Secret:
+kubectl create secret generic creds --from-file=jetty-realm.properties -n active-mq
