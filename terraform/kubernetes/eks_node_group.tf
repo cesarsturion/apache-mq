@@ -59,7 +59,7 @@
 
 resource "aws_eks_node_group" "eks-node-group" {
   cluster_name    = aws_eks_cluster.eks-cluster.name
-  node_group_name = "eks-veloe-nodes"
+  node_group_name = var.node_group_name
   node_role_arn   = aws_iam_role.eks-node-service-role.arn
   #node_role_arn   = "arn:aws:iam::495964244270:role/eksNodeInstanceRole"  
   subnet_ids      = data.aws_subnet_ids.public.ids
@@ -72,7 +72,7 @@ resource "aws_eks_node_group" "eks-node-group" {
   }
 
   remote_access {
-    ec2_ssh_key               = "eks-alelo-backup"
+    ec2_ssh_key               = var.ssh_key_pair
     source_security_group_ids = [data.aws_security_group.selected.id]
   }  
 

@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "tfstates-terraform-alelo-bkp"
+    bucket = "gudiao-labs-tfstates-terraform"
     key    = "eks/terraformt.tfstate"
     region = "us-east-1"
   }
